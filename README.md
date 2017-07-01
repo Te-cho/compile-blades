@@ -2,7 +2,7 @@
 
 A Laravel package for compiling blades nested in 1 file into 1 flattened file.
 
-
+ 
 ## Why?
 
 > For best performance, you may want to consider flattening your blades on production, cause a lot of nesting consumes time in laravel
