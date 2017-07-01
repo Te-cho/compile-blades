@@ -1,0 +1,39 @@
+{
+  "name": "te-cho/compile-blades",
+  "description": "A Laravel package for compiling blades nested in 1 file into 1 flattened file.",
+  "keywords": ["css", "performance", "laravel"],
+  "authors": [
+    {
+      "name": "Abidul Wahab Ramadan",
+      "email": "abidul.rdmdn@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=5.5.9",
+    "illuminate/contracts": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*",
+    "illuminate/support": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*",
+    "illuminate/console": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*",
+    "illuminate/view": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*",
+    "symfony/process": "^2.6|^3.1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.8|~5.0",
+    "mockery/mockery": "0.9.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Techo\\CompileBlades\\": "./src/"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/TestCase.php"
+    ]
+  },
+  "config": {
+      "preferred-install": "dist"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
