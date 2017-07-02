@@ -75,8 +75,8 @@ So we run the following command:
     $ php artisan compile:blades test
 
 ### Input File
-![test.blade.php](https://goo.gl/photos/WZERd5aRzxJbs3qN6)
-![subviews/included-test.blade.php](https://goo.gl/photos/cUibK4GsJpfrajd28)
+![test.blade.php](https://goo.gl/hwNSCc)
+![subviews/included-test.blade.php](https://goo.gl/jkoseH)
 
 ### Output File
-![test.blade.php](https://goo.gl/photos/YA5tNu1e6Pf24yru6)
+![test.blade.php](https://goo.gl/PGRkJk)
