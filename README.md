@@ -17,7 +17,7 @@ Example of problems:
 
 - [Installation](#installation)
     - [1) Require the package](#2-require-the-package)
-    - [3) Configure Laravel](#3-configure-laravel)
+    - [2) Configure Laravel](#3-configure-laravel)
 - [Usage](#usage)
     - [Generating flatened blade file](#generating-flattened-blade)
 - [A demo](#a-demo)
