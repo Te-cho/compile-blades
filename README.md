@@ -24,4 +24,59 @@ Example of problems:
     - [Perfomance Insights results](#profiler-resutls)
 
 
-.. to be continued soon..
+### 1) Require the package
+
+Next, you'll need to require the package using Composer:
+
+From your project's base path, run:
+
+    $ composer require te-cho/compile-blades
+
+### 2) Configure Laravel
+
+#### Service Provider
+
+Add the following to the `providers` key in `config/app.php`:
+
+``` php
+'providers' => [
+    Techo\CompileBlades\CompileBladesServiceProvider::class,
+];
+```
+
+#### Console
+
+To get access to the `compile:blades` command, add the following to the `$commands` property in `app/Console/Kernel.php`:
+
+``` php
+protected $commands = [
+    \Techo\CompileBlades\Console\CompileBlades::class,
+];
+```
+
+## Usage
+
+Before getting started, I highly recommend reading through Laravels documentation on Views and Blades.
+
+### Flattening Views:
+
+Providing everything is set up and configured properly, all you need to do in order to flatten a view for a certain route or something else, is running the following command:
+
+    $ php artisan compile:blades view-name
+
+This will generate a flattened view instead of the current one.
+
+
+## Example: 
+Lets say we have a view called test.blade.php that is called by one of our controllers, which is including another view
+inside of it, but the problem is that its looping in it, which causes the include to happen alot which cause performance drops.
+So we run the following command:
+
+    $ php artisan compile:blades test
+
+### Input File
+![test.blade.php](https://goo.gl/photos/WZERd5aRzxJbs3qN6)
+![subviews/included-test.blade.php](https://goo.gl/photos/cUibK4GsJpfrajd28)
+
+### Output File
+![test.blade.php](https://goo.gl/photos/YA5tNu1e6Pf24yru6)
