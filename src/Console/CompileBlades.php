@@ -16,7 +16,7 @@ class CompileBlades extends Command
      *
      * @var string
      */
-    protected $signature = 'compile:blades';
+    protected $signature = 'compile:blades {blade-name}';
 
     /**
      * The console command description.
@@ -32,8 +32,7 @@ class CompileBlades extends Command
      */
     public function handle()
     {
-        dd('asd');
-        $viewName = 'filtered';
+        $viewName = $this->argument('blade-name');
 
         $blade = $this->compile(view($viewName)->getPath());
         file_put_contents(view($viewName)->getPath(), $blade);
