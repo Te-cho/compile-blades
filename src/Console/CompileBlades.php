@@ -5,10 +5,6 @@ namespace Techo\CompileBlades\Console;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;
 
-/**
- * Class CompileBlades
- * @package Techo\CompileBlades\Console\Commands
- */
 class CompileBlades extends Command
 {
     /**
@@ -16,7 +12,7 @@ class CompileBlades extends Command
      *
      * @var string
      */
-    protected $signature = 'compile:blades {blade-name}';
+     protected $signature = 'compile:blades {blade-name}';
 
     /**
      * The console command description.
@@ -79,7 +75,8 @@ class CompileBlades extends Command
             // Include files and append variables
             foreach ($includesWithVariables as $subViewName => $arrayOfVariables) {
                 $subView = $arrayOfVariables . "\r\n" . file_get_contents(view($subViewName)->getPath());
-                $blade = preg_replace("/@include.*?['|\"]" . $subViewName . "['|\"]((,)(.*?))?[)]$/im", $subView, $blade);
+                $blade =
+                    preg_replace("/@include.*?['|\"]" . $subViewName . "['|\"]((,)(.*?))?[)]$/im", $subView, $blade);
             }
             preg_match_all("/@include.*?['|\"](.*?)['|\"]((,)(.*?))?[)]$/sim", $blade, $pregOutput);
             if (++$i > 2) {
@@ -115,12 +112,14 @@ class CompileBlades extends Command
 
         //find the extended file
         preg_match_all('/@extends[(][\'](.*?)[\'][)]/si', $blade, $output);
-        $layout = $output[1][0];
-        //take out the extend keyword
-        $blade = preg_replace('/@extends[(][\'](.*?)[\'][)]/si', "{{-- Extend layout was here --}}", $blade);
-        //bring the layout
-        $layout = file_get_contents(view($layout)->getPath());
-        $blade = $blade . " " . $layout;
+        if (!empty($output[1])) {
+            $layout = $output[1][0];
+            //take out the extend keyword
+            $blade = preg_replace('/@extends[(][\'](.*?)[\'][)]/si', "{{-- Extend layout was here --}}", $blade);
+            //bring the layout
+            $layout = file_get_contents(view($layout)->getPath());
+            $blade = $blade . " " . $layout;
+        }
 
         return $layout;
     }
