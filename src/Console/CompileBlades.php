@@ -109,9 +109,9 @@ class CompileBlades extends Command
 
     private function replaceLayout(&$blade)
     {
-
         //find the extended file
         preg_match_all('/@extends[(][\'](.*?)[\'][)]/si', $blade, $output);
+
         if (!empty($output[1])) {
             $layout = $output[1][0];
             //take out the extend keyword
@@ -120,8 +120,6 @@ class CompileBlades extends Command
             $layout = file_get_contents(view($layout)->getPath());
             $blade = $blade . " " . $layout;
         }
-
-        return $layout;
     }
 
     private function replaceSections(&$blade, $sections)
