@@ -1,3 +1,4 @@
+small change
 # compile-blades 
 
 A Laravel package for compiling blades nested in 1 file into 1 flattened file.
